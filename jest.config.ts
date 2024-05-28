@@ -6,6 +6,7 @@ const config: Config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
   collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  modulePathIgnorePatterns: ['types.ts'],
   transformIgnorePatterns: [
     '/node_modules/(?!(@react-native|react-native|@react-navigation|react-native-reanimated|)/)',
   ],

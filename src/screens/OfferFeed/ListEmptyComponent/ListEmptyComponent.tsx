@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import {styles} from './styles';
-import {ListEmptyComponentTestIDs} from './tyles';
+import {ListEmptyComponentTestIDs} from './types';
 
 type ListEmptyComponentProps = {
   errorMessage: string;

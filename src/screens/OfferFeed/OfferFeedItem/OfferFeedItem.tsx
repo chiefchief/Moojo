@@ -19,11 +19,8 @@ export const OfferFeedItem = memo<OfferFeedItemProps>(({item, index}) => {
   const onPressItem = () => navigate(Screens.OfferDetails, {item});
 
   return (
-    <Animated.View
-      entering={FadeInRight.delay(index * 50)}
-      style={styles.container}
-      testID={OfferFeedItemTestIDs.Button}>
-      <Pressable onPress={onPressItem}>
+    <Animated.View entering={FadeInRight.delay(index * 50)} style={styles.container}>
+      <Pressable onPress={onPressItem} testID={OfferFeedItemTestIDs.Button}>
         <View style={styles.topBlock}>
           <View style={styles.titleBlock}>
             <Text style={styles.title}>{item.title}</Text>

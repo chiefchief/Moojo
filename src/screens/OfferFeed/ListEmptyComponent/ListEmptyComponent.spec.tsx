@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import {ListEmptyComponent} from './ListEmptyComponent';
-import {ListEmptyComponentTestIDs} from './tyles';
+import {ListEmptyComponentTestIDs} from './types';
 
 describe('ListEmptyComponent', () => {
   it('renders loading indicator when isLoading is true', () => {
