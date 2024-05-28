@@ -2,13 +2,14 @@ import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import React, {FC, useCallback, useEffect} from 'react';
 import {RootStackParamList} from '../../_AppNavigator/types';
 import {Screens} from '../Screens';
-import {Image, ScrollView, StyleSheet, Text, View} from 'react-native';
+import {Image, ScrollView, Text, View} from 'react-native';
 import {ClaimOfferButton} from './ClaimOfferButton/ClaimOfferButton';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useClaimTheOffer} from './hooks/useClaimTheOffer';
 import {AvailableBlock} from '../../components/AvailableBlock/AvailableBlock';
 import {useScreenOrientation} from '../../hooks/useScreenOrientation';
 import {Close} from './Close/Close';
+import {styles} from './styles';
 
 const headerRight = () => <Close />;
 
@@ -59,54 +60,3 @@ export const OfferDetails: FC = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  contentContainerStyle: {
-    paddingTop: 16,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  description: {
-    marginTop: 8,
-    fontSize: 16,
-  },
-  portraitImage: {
-    marginTop: 24,
-  },
-  image: {
-    width: 200,
-    aspectRatio: 1,
-    alignSelf: 'center',
-    backgroundColor: 'red',
-  },
-  rowBlow: {
-    flexDirection: 'row',
-    columnGap: 16,
-  },
-  columnBlock: {
-    flexDirection: 'column',
-  },
-  block: {
-    marginTop: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  available: {
-    fontSize: 16,
-  },
-  cashback: {
-    color: 'red',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-  termsTitle: {
-    marginTop: 16,
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
-});

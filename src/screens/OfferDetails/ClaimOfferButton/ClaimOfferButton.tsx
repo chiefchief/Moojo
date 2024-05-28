@@ -1,6 +1,8 @@
 import React, {memo} from 'react';
-import {ActivityIndicator, GestureResponderEvent, Pressable, StyleSheet} from 'react-native';
+import {ActivityIndicator, GestureResponderEvent, Pressable} from 'react-native';
 import Animated, {FadeInUp, FadeOutDown} from 'react-native-reanimated';
+import {styles} from './styles';
+import {ClaimOfferButtonTestIDs} from './types';
 
 type ClaimOfferButtonProps = {
   isLoading: boolean;
@@ -9,35 +11,24 @@ type ClaimOfferButtonProps = {
 
 export const ClaimOfferButton = memo<ClaimOfferButtonProps>(({isLoading, onPress}) => {
   return (
-    <Pressable disabled={isLoading} style={[styles.container, isLoading && styles.disabled]} onPress={onPress}>
+    <Pressable
+      disabled={isLoading}
+      style={[styles.container, isLoading && styles.disabled]}
+      onPress={onPress}
+      testID={ClaimOfferButtonTestIDs.Button}>
       {isLoading ? (
         <Animated.View entering={FadeInUp} exiting={FadeOutDown}>
-          <ActivityIndicator color={'white'} />
+          <ActivityIndicator color={'white'} testID={ClaimOfferButtonTestIDs.ActivityIndicator} />
         </Animated.View>
       ) : (
-        <Animated.Text style={styles.title} entering={FadeInUp} exiting={FadeOutDown}>
+        <Animated.Text
+          style={styles.title}
+          entering={FadeInUp}
+          exiting={FadeOutDown}
+          testID={ClaimOfferButtonTestIDs.ButtonTitle}>
           {'Claim the Offer'}
         </Animated.Text>
       )}
     </Pressable>
   );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#007bff',
-    height: 48,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 24,
-    marginTop: 16,
-  },
-  disabled: {
-    backgroundColor: '#80bdff',
-  },
-  title: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'white',
-  },
 });

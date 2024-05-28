@@ -1,6 +1,7 @@
 import React, {memo} from 'react';
 import {View, Text, ActivityIndicator} from 'react-native';
 import {styles} from './styles';
+import {ListEmptyComponentTestIDs} from './tyles';
 
 type ListEmptyComponentProps = {
   errorMessage: string;
@@ -13,9 +14,11 @@ export const ListEmptyComponent = memo<ListEmptyComponentProps>(({errorMessage, 
   return (
     <View style={styles.container}>
       {isLoading ? (
-        <ActivityIndicator size={'large'} />
+        <ActivityIndicator size={'large'} testID={ListEmptyComponentTestIDs.ActivityIndicator} />
       ) : (
-        <Text style={styles.errorText}>{errorMessage || defaultText}</Text>
+        <Text style={styles.errorText} testID={ListEmptyComponentTestIDs.Text}>
+          {errorMessage || defaultText}
+        </Text>
       )}
     </View>
   );

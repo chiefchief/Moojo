@@ -1,4 +1,4 @@
-import {atom, selector} from 'recoil';
+import {atom} from 'recoil';
 import {OffersState} from './types';
 
 export const offersState = atom<OffersState>({
@@ -7,14 +7,5 @@ export const offersState = atom<OffersState>({
     offers: [],
     isLoading: false,
     errorMessage: '',
-  },
-});
-
-export const offersError = selector({
-  key: 'FilteredTodoList',
-  get: ({get}) => {
-    const {errorMessage} = get(offersState);
-
-    return errorMessage;
   },
 });

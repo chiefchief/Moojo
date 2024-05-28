@@ -7,6 +7,7 @@ import {NavigationProp, useNavigation} from '@react-navigation/native';
 import {RootStackParamList} from '../../../_AppNavigator/types';
 import {Screens} from '../../Screens';
 import {AvailableBlock} from '../../../components/AvailableBlock/AvailableBlock';
+import {OfferFeedItemTestIDs} from './types';
 
 type OfferFeedItemProps = {
   item: OfferItem;
@@ -18,7 +19,10 @@ export const OfferFeedItem = memo<OfferFeedItemProps>(({item, index}) => {
   const onPressItem = () => navigate(Screens.OfferDetails, {item});
 
   return (
-    <Animated.View entering={FadeInRight.delay(index * 50)} style={styles.container}>
+    <Animated.View
+      entering={FadeInRight.delay(index * 50)}
+      style={styles.container}
+      testID={OfferFeedItemTestIDs.Button}>
       <Pressable onPress={onPressItem}>
         <View style={styles.topBlock}>
           <View style={styles.titleBlock}>

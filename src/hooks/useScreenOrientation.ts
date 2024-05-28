@@ -5,13 +5,16 @@ export const useScreenOrientation = () => {
   const [isPortrait, setIsPortrait] = useState(true);
 
   useEffect(() => {
-    Dimensions.addEventListener('change', ({window: {width, height}}) => {
+    const {remove} = Dimensions.addEventListener('change', ({window: {width, height}}) => {
       if (width < height) {
         setIsPortrait(true);
       } else {
         setIsPortrait(false);
       }
     });
+    return () => {
+      remove();
+    };
   }, []);
 
   return {isPortrait};
